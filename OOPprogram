@@ -1,0 +1,27 @@
+function CalculationofShapes(length_, Width) {
+  this.length_ = length_;
+  this.Width = Width;
+}
+
+CalculationofShapes.prototype.Area = function () {
+  var radius = this.Width / 2;
+  return this.length_ * Math.PI * radius * radius;
+};
+
+var cyl = new CalculationofShapes(7, 4);
+// Volume of the cylinder with four decimal places.
+console.log('volume =', cyl.Area().toFixed(4));
+
+var inheritsFrom = function (child, parent) {
+    child.prototype = Object.create(parent.prototype);
+};
+
+var Square = function(Squ_length,Squ_breadth ) {
+    this.Squ_length = Squ_length;
+    this.Squ_breadth = Squ_breadth;
+};
+
+inheritsFrom(Square, CalculationofShapes);
+
+var squ = new Square(6,8);
+console.log('volume =', squ.Area().toFixed(4));
